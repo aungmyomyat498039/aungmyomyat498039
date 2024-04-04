@@ -3,7 +3,7 @@
 [![GitHub Game of Life](https://github4life.herokuapp.com/ethomson.gif?z=6)](https://github4life.herokuapp.com/ethomson)
 
 <h1>
-  i'm a vue.js fanboy, but i do some other stuff too :hammer:
+  My Tech Stack
 </h1>
 
 <p align="center">
