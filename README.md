@@ -1,10 +1,17 @@
-# Hi, I'm Aung Myo Myat 👋🏾 👩🏾‍💻
+# My GitHub contributions as a Game of Life
 
-<img src="https://raw.githubusercontent.com/M0nica/M0nica/master/gh-header-image-cropped.png" alt="banner that says Monica Powell - software engineer, content creator and community organizer alongside a cartoon illustration of Monica">
-I'm a software engineer who is passionate about making contributing to open-source more approachable, creating technology to elevate people, and building community. Some technologies I enjoy working with include ReactJS, Jamstack (JavaScript, APIs + Markup) and GraphQL. In 2020, I was selected to be an inaugural <a href="https://stars.github.com/">GitHub Star 🌟</a> based on my involvement in the tech community.  My interest in the React ecosystem led me to launch <a href="https://www.reactrobins.com/">React Robins</a>, a community for women and non-binary ReactJS developers.
+[![GitHub Game of Life](https://github4life.herokuapp.com/ethomson.gif?z=6)](https://github4life.herokuapp.com/ethomson)
 
+(Be sure to click on it for the infinite scrolling version.)
 
-## Find me around the web 🌎: <a href="https://github.com/sponsors/M0nica"><img align="left" width="150" height="150" src="https://github.com/M0nica/M0nica/blob/main/octomonica/m0nica-octocat-rotating.gif?raw=true"></a>
-- Learning in public on <a href="https://www.twitch.tv/blacktechdiva">Twitch</a> or <a href="https://www.monica.dev">monica.dev</a> 📹 ✍🏾
-- Tinkering with interactions on <a href="https://codepen.io/m0nica"> Codepen</a> 🏓
-- Sharing updates on <a href="https://www.linkedin.com/in/monicampowell/">LinkedIn</a> 💼
+### What's this?
+
+This takes my GitHub contribution graph and uses it as the initial state for [Conway's Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life), a popular cellular automaton that is often built by beginning software developers as an easy-to-implement but interesting piece of software.
+
+Conway's Game of Life only defines two initial states for cells, but there are [multi-color variants](https://conwaylife.com/ref/mniemiec/color.htm).  This is a variant of "Quad Life" (chosen because the GitHub contribution graph has four colors that represent the intensity of contributions for a given day): in the typical Game of Life rules, a graph with a lot of contribution would die out in the first iteration (because the cells would be overcrowded), which seems to punish those with a lot of contributions, giving them a boring Game of Life.  Intead, this variant "decays" the level of contribution, so cells will fade away instead of dying immediately.
+
+### How does it work?
+
+This uses a JavaScript library called [contributions](https://npmjs.com/contributions) to create a data structure with a GitHub contribution graph, and uses that as the initial state for another JavaScript library called [dat-life](http://npmjs.com/dat-life).
+
+A simple Node.js application called [github4life](https://github.com/ethomson/github4life) -- so named because it takes a _GitHub_ contribution graph and turns it into a _4_ color Game of _Life_ -- renders this as an animated GIF.  When talking to GitHub's image caching service (camo) it will render 20 frames and then stop (so that the resulting image can actually be cached) but when you hit it with your web browser, it will render the game of life on-demand - infinitely continuing to deliver you the next state as a new frame in the GIF, forever.
